@@ -1,9 +1,11 @@
-package com.eendtech.cqutsmartwatchapp;
+package com.eendtech.cqutsmartwatchapp.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.eendtech.cqutsmartwatchapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
