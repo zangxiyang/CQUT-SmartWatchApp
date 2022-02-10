@@ -4,7 +4,7 @@
 
 ## 提交规范
 
-###示例
+### 示例
 ```cmd
 git commit -m "[views] 添加xxx页面"            // 新增页面
 git commit -m "[fix] 修复xxx Bug"             // 修复一些问题
