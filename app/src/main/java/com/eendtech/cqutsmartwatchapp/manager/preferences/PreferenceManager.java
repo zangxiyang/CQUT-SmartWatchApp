@@ -5,6 +5,7 @@ import android.content.Context;
 import com.eendtech.cqutsmartwatchapp.model.preferences.UserPreference;
 
 public class PreferenceManager {
+    // 采用单例模式,防止多次加载导致数据不统一
     private static volatile PreferenceManager instance;
 
     private UserPreference userPreference;
