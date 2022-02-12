@@ -3,16 +3,19 @@ package com.eendtech.cqutsmartwatchapp.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eendtech.cqutsmartwatchapp.R;
 import com.eendtech.cqutsmartwatchapp.constant.BaseConstant;
 import com.eendtech.cqutsmartwatchapp.manager.preferences.PreferenceManager;
 import com.eendtech.cqutsmartwatchapp.timer.SendSmsCodeTimer;
+import com.eendtech.cqutsmartwatchapp.utils.PhoneCheckUtil;
+import com.eendtech.cqutsmartwatchapp.utils.StringUtil;
 import com.gyf.immersionbar.ImmersionBar;
 
 import butterknife.BindView;
@@ -31,11 +34,28 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.cv_verifyCode)
     CardView cv_verifyCode;
 
+    // 手机号
+    @BindView(R.id.et_phoneNumber)
+    EditText et_phoneNumber;
+
+    // 密码
+    @BindView(R.id.et_passWord)
+    EditText et_passWord;
+
+    // 验证码
+    @BindView(R.id.et_registerCode)
+    EditText et_registerCode;
+
 
     // 生成定时器
     SendSmsCodeTimer sendSmsCodeTimer;
 
+    // 请求类型标识: 登录 or 注册
     private int submitFlag = BaseConstant.Login.POST_TYPE_REGISTER.getVal();
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +87,24 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 发送验证码按钮被点击
+     */
     @OnClick(R.id.btn_sendSmsCode)
     void onBtnSendSmsCodeClick() {
-        sendSmsCodeTimer = new SendSmsCodeTimer(60, 1, btn_sendSmsCode);
-        sendSmsCodeTimer.start();
+
+        // 进行前置判断
+        if (StringUtil.isNotBlank(et_phoneNumber.getText().toString(), et_passWord.getText().toString())
+                && PhoneCheckUtil.isPhoneLegal(et_phoneNumber.getText().toString())){
+            // 如果当前不为空且手机号正则通过
+            // TODO 发送验证码进行注册
+            sendSmsCodeTimer = new SendSmsCodeTimer(60, 1, btn_sendSmsCode);
+            sendSmsCodeTimer.start();
+
+        } else{
+            Toast.makeText(this,"内容不能为空且手机号必须输入正确!",Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @OnClick(R.id.tv_changeType)
