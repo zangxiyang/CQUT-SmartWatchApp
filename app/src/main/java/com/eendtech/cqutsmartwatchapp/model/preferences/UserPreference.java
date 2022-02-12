@@ -39,4 +39,20 @@ public class UserPreference extends DefaultPreference {
     public UserModel getUserInfo() {
         return gson.fromJson(getPreferences().getString(KEY_CQUT_USER_INFO, gson.toJson(new UserModel())), UserModel.class);
     }
+
+    /**
+     * 清除key下的数据
+     */
+    public void clear(String name){
+        getPreferences().remove(name);
+    }
+
+    /**
+     * 清除所有数据
+     */
+    public void clearAll(){
+        getPreferences().clear();
+    }
+
+
 }

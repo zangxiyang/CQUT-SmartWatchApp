@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eendtech.cqutsmartwatchapp">
 
-
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -13,8 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".app.LoginActivity"
-            android:exported="false" />
-        <!-- 适配华为（huawei）刘海屏 -->
+            android:exported="false" /> <!-- 适配华为（huawei）刘海屏 -->
         <meta-data
             android:name="android.notch_support"
             android:value="true" /> <!-- 适配小米（xiaomi）刘海屏 -->
@@ -32,6 +30,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

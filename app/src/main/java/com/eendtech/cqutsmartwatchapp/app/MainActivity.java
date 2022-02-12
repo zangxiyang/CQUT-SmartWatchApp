@@ -2,6 +2,7 @@ package com.eendtech.cqutsmartwatchapp.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         UserPreference userPreference = PreferenceManager.getInstance().getUserPreferences();
         userPreference.setUserInfo(new UserModel().setUserName("测试姓名").setLogin(true));
         tvTitle.setText(userPreference.getUserInfo().getUserName());
+
+        Intent intent = new Intent();
+        intent.setClass(this,LoginActivity.class);
+        startActivity(intent);
 
 
     }
