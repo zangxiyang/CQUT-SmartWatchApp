@@ -19,4 +19,17 @@ public class BaseConstant {
             this.val = val;
         }
     }
+
+    @Getter
+    public enum Login{
+        POST_TYPE_LOGIN(0),
+        POST_TYPE_REGISTER(1);
+
+
+        private final int val;
+
+        Login(int val) {
+            this.val = val;
+        }
+    }
 }

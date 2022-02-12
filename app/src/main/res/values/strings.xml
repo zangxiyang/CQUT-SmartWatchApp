@@ -4,9 +4,9 @@
     <string name="app_logo_desc">App的LOGO</string>
     <string name="login_title_loginOrRegister">登录/注册</string>
     <string name="login_phone_prefix">+86</string>
-    <string name="et_loginOrRegisterHintText">您的手机号(中国大陆地区)</string>
-    <string name="et_loginPasswordHintText">您的密码</string>
-    <string name="et_registerHintText">收到的验证码</string>
+    <string name="et_loginOrRegisterHintText">手机号(中国大陆地区)</string>
+    <string name="et_loginPasswordHintText">密码</string>
+    <string name="et_registerHintText">验证码</string>
     <string name="login_tv_changeRegisterType">没有账号?</string>
     <string name="login_tv_changeLoginType">已有账号?</string>
     <string name="login_tv_sendSmsCode">发送验证码</string>

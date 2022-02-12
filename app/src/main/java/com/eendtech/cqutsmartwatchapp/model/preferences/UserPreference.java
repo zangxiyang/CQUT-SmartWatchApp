@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 
 public class UserPreference extends DefaultPreference {
 
-    private final String KEY_CQUT_USER_INFO = "cqut_userInfo";
+    private final static String KEY_CQUT_USER_INFO = "cqut_userInfo";
 
     private final Gson gson = new Gson();
 
@@ -37,7 +37,9 @@ public class UserPreference extends DefaultPreference {
      * @return UserModel
      */
     public UserModel getUserInfo() {
-        return gson.fromJson(getPreferences().getString(KEY_CQUT_USER_INFO, gson.toJson(new UserModel())), UserModel.class);
+        UserModel userModel = new UserModel()
+                .setLogin(false);
+        return gson.fromJson(getPreferences().getString(KEY_CQUT_USER_INFO, gson.toJson(userModel)), UserModel.class);
     }
 
     /**
