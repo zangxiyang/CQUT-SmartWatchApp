@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.eendtech.cqutsmartwatchapp.Application;
 import com.eendtech.cqutsmartwatchapp.R;
 import com.eendtech.cqutsmartwatchapp.manager.preferences.PreferenceManager;
 import com.eendtech.cqutsmartwatchapp.model.base.UserModel;
@@ -15,6 +17,7 @@ import com.gyf.immersionbar.ImmersionBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.tv_title)
+    void onTvTitleClick(){
+        finish();
+        System.exit(0);
+    }
+
     /**
      * 测试
      */
@@ -67,5 +76,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, Application.FIRST_START_FLAG == 1? "刷数据":"不刷数据",Toast.LENGTH_LONG).show();
     }
 }

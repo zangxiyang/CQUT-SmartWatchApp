@@ -1,14 +1,14 @@
 package com.eendtech.cqutsmartwatchapp.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.eendtech.cqutsmartwatchapp.R;
 import com.eendtech.cqutsmartwatchapp.constant.BaseConstant;
@@ -17,6 +17,7 @@ import com.eendtech.cqutsmartwatchapp.timer.SendSmsCodeTimer;
 import com.eendtech.cqutsmartwatchapp.utils.PhoneCheckUtil;
 import com.eendtech.cqutsmartwatchapp.utils.StringUtil;
 import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.toast.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+
     }
 
     /**
@@ -74,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
                 .statusBarDarkFont(true)
                 .transparentStatusBar()
                 .init();
+
+
         // 对当前APP和登录状态进行判断
         if (PreferenceManager.getInstance().getAppPreference().getAppInfo().isFirstUse() || !PreferenceManager.getInstance().getUserPreferences().getUserInfo().isLogin()){
             // 如果当前为第一次使用APP 或者 没有登录的状态下则默认为注册
@@ -103,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
 
         } else{
             Toast.makeText(this,"内容不能为空且手机号必须输入正确!",Toast.LENGTH_LONG).show();
+
         }
 
     }

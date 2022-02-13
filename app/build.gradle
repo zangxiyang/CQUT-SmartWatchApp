@@ -53,7 +53,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     // 引入gson
     implementation 'com.google.code.gson:gson:2.8.9'
-
+    // 吐司框架：https://github.com/getActivity/ToastUtils
+    implementation 'com.github.getActivity:ToastUtils:10.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
